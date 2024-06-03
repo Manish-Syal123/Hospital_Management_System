@@ -22,8 +22,8 @@ const userSchema = new mongoose.Schema({
   phone: {
     type: String,
     required: [true, "Phone Is Required!"],
-    minLength: [11, "Phone Number Must Contain Exact 11 Digits!"],
-    maxLength: [11, "Phone Number Must Contain Exact 11 Digits!"],
+    minLength: [10, "Phone Number Must Contain Exact 10 Digits!"],
+    maxLength: [10, "Phone Number Must Contain Exact 10 Digits!"],
   },
   nic: {
     type: String,
@@ -60,8 +60,6 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-export const User = mongoose.model("User", userSchema);
-
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) {
     next();
@@ -75,11 +73,14 @@ userSchema.methods.comparePassword = async function (enteredPassword) {
 };
 
 // generating the token when user will login
+
 userSchema.methods.generateJsonWebToken = function () {
   return jwt.sign({ id: this._id }, process.env.JWT_SECRET_KEY, {
     expiresIn: process.env.JWT_EXPIRES,
   });
 };
+
+export const User = mongoose.model("User", userSchema);
 
 //What is NIC
 //  The government offers the National Industrial Classification Code as a form of business code to help firms classified as micro, small, and medium enterprises keep track of their commercial transactions. The NIC code is given in order to carefully and exactly track the commercial activities of the firms. The National Industrial Classification Code has been shown to be essential for various commercial transactions in the MSME sector. To aid the entrepreneurs who are the backbone of the Indian economy, the government has already announced a number of programs in this area.
