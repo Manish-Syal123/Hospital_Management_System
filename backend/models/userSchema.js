@@ -67,6 +67,8 @@ userSchema.pre("save", async function (next) {
   this.password = await bcrypt.hash(this.password, 10); // hash the user password
 });
 
+//Creating function for each user : these functions will get attach when new user is created
+
 //Compare the user's entered password with it's hashed(encrypted) password stored in DB
 userSchema.methods.comparePassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
