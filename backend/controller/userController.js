@@ -86,9 +86,52 @@ export const login = catchAsyncErrors(async (req, res, next) => {
   }
 
   // Succefull response will be send from this function along with Token and cookie will be stored
-  generateToken(user, "User Logged In Successfully!", 200, res);
+  generateToken(user, `${role} Logged In Successfully!`, 200, res);
   // res.status(200).json({
   //   success: true,
   //   message: "User Logged In Successfully!",
   // });
+});
+
+// endPoint to add(register) new Admin
+export const addNewAdmin = catchAsyncErrors(async (req, res, next) => {
+  const { firstName, lastName, email, phone, nic, dob, gender, password } =
+    req.body;
+
+  if (
+    !firstName ||
+    !lastName ||
+    !email ||
+    !phone ||
+    !nic ||
+    !dob ||
+    !gender ||
+    !password
+  ) {
+    return next(new ErrorHandler("Please Fill Full Form!", 400));
+  }
+
+  const isRegistered = await User.findOne({ email });
+  if (isRegistered) {
+    return next(
+      new ErrorHandler(`${isRegistered.role} with this Email Already Exists!`) // eg: patient with this email already exists // then we cant add(register) admin with this email
+    );
+  }
+
+  const admin = await User.create({
+    firstName,
+    lastName,
+    email,
+    phone,
+    nic,
+    dob,
+    gender,
+    password,
+    role: "Admin",
+  });
+
+  res.status(200).json({
+    success: true,
+    message: "New Admin Registered!",
+  });
 });
