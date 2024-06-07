@@ -4,6 +4,7 @@ import ErrorHandler from "./errorMiddleware.js";
 import jwt from "jsonwebtoken";
 
 export const isAdminAuthenticated = catchAsyncErrors(async (req, res, next) => {
+  //Authentication
   const token = req.cookies.adminToken; // admintoken is the cookie name which we set while creating the token based on roles ("patient" or "Admin") in utils/jwtToken.js
   if (!token) {
     return next(new ErrorHandler("Admin Not Authenticated!", 400));
@@ -11,6 +12,7 @@ export const isAdminAuthenticated = catchAsyncErrors(async (req, res, next) => {
 
   const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
   req.user = await User.findById(decoded.id);
+  //Authorization
   if (req.user.role !== "Admin") {
     return next(
       new ErrorHandler(
