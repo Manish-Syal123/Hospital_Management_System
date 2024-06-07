@@ -3,6 +3,7 @@ import ErrorHandler from "../middlewares/errorMiddleware.js";
 import { Appointment } from "../models/appointmentSchema.js";
 import { User } from "../models/userSchema.js";
 
+// endpoint to book appointment
 export const postAppointment = catchAsyncErrors(async (req, res, next) => {
   const {
     firstName,
@@ -89,6 +90,7 @@ export const postAppointment = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
+// endpoint to get all booked appointments
 export const getAllAppointments = catchAsyncErrors(async (req, res, next) => {
   const appointments = await Appointment.find();
   res.status(200).json({
@@ -96,3 +98,28 @@ export const getAllAppointments = catchAsyncErrors(async (req, res, next) => {
     appointments,
   });
 });
+
+// endpoint to Update appointments status
+export const updateAppointmentStatus = catchAsyncErrors(
+  async (req, res, next) => {
+    const { id } = req.params; // we will receive an appointment ID in the url to update it's status
+    let appointment = await Appointment.findById(id);
+    if (!appointment) {
+      return next(new ErrorHandler("Appointment not Found!", 404));
+    }
+
+    // with req.body we can access complete appointment detais and can update any detail of it(thats why we are using req.body rather than {status:"requested status"}) // it's logic will be written from frontend
+    //for eg. in req.body we will receive "status":"Accepted" or "status":"Rejected"
+    appointment = await Appointment.findByIdAndUpdate(id, req.body, {
+      new: true,
+      runValidators: true,
+      useFindAndModify: false,
+    });
+
+    res.status(200).json({
+      success: true,
+      message: "Appointment Status Updated!",
+      appointment,
+    });
+  }
+);
