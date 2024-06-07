@@ -7,7 +7,8 @@ export const generateToken = (user, message, statusCode, res) => {
     .cookie(cookieName, token, {
       expires: new Date(
         Date.now() + process.env.COOKIE_EXPIRE * 24 * 60 * 60 * 1000
-      ), // (7days * hour(24) * minute(60) *second(60) * miliSecond(1000) )
+      ), // (7days * hour(24) * minute(60) *second(60) * miliSecond(1000))
+      httpOnly: true,
     })
     .json({
       success: true,
