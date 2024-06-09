@@ -172,6 +172,8 @@ h6 {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  /* padding-left: 150px;
+  padding-right: 150px; */
 }
 .form-component form div {
   display: flex;
@@ -181,13 +183,15 @@ h6 {
 .form-component form select,
 .form-component form textarea {
   flex: 1;
-  font-size: 24px;
-  padding: 10px 10px 10px 40px;
-  border-radius: 7px;
-  border: 1px solid gray;
+  font-size: 15px;
+  /* padding: 10px 10px 10px 40px; */
+  padding: 10px;
+  border-radius: 9px;
+  border: 2px solid gray;
 }
 .form-component button {
   padding: 10px 35px;
+  cursor: pointer;
   color: #fff;
   font-weight: 700;
   width: fit-content;
@@ -288,7 +292,7 @@ h6 {
 }
 .message-form h2 {
   text-align: center;
-  color: #000;
+  color: #000000;
   position: relative;
 }
 .message-form img {
@@ -442,6 +446,29 @@ nav {
   padding-bottom: 20px !important;
   z-index: 2;
 }
+nav .link {
+  display: flex;
+  /* column-gap: 2rem; */
+  gap: 5rem;
+  justify-content: space-between;
+  font-weight: 700;
+  align-items: center;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+nav .link a:hover {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 14px;
+  padding-right: 14px;
+  background-color: #222;
+  color: #fff;
+  border-radius: 25px;
+  border: 2px solid rgb(2, 255, 23);
+  align-items: center;
+}
 nav .logo {
   flex: 1;
   display: flex;
@@ -468,10 +495,11 @@ nav .navLinks .links a {
   letter-spacing: 1.4px;
 }
 nav .navLinks .links a:hover {
-  color: #000;
+  color: #4547d0;
   transition: 0.3s;
   cursor: pointer;
 }
+
 nav .btn {
   padding: 8px 20px;
   color: #e5e5e5;
@@ -483,10 +511,12 @@ nav .btn {
   z-index: 2;
 }
 nav .logoutBtn {
-  background: linear-gradient(135deg, black, rgb(49, 49, 49));
+  background: linear-gradient(130deg, rgb(139, 18, 239), rgb(49, 49, 49));
+  cursor: pointer;
 }
 nav .loginBtn {
-  background: linear-gradient(135deg, black, rgb(49, 49, 49));
+  background: linear-gradient(130deg, rgb(139, 18, 239), rgb(49, 49, 49));
+  cursor: pointer;
 }
 nav .hamburger {
   display: none;
@@ -509,6 +539,7 @@ nav svg {
   }
   nav .hamburger {
     display: flex;
+    cursor: pointer;
   }
   nav .navLinks {
     display: flex;
@@ -520,9 +551,17 @@ nav svg {
     position: fixed;
     left: 0;
     height: 100%;
-    width: 400px;
+    width: 300px;
     background: #ffffffbf;
     top: 79px;
+  }
+  nav .link {
+    display: flex;
+    /* column-gap: 2rem; */
+    gap: 4rem;
+    justify-content: space-between;
+    font-weight: 700;
+    flex-direction: column;
   }
   nav .showmenu {
     display: flex;
