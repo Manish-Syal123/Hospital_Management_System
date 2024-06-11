@@ -10,7 +10,7 @@ const Home = () => {
         title={
           "Welcome to HumanKind Medicare Institute | Your Trusted Healthcare Provider"
         }
-        imageUrl={"/hero.png"}
+        imageUrl={"/doctors.png"}
       />
       <Biography imageUrl={"/hero2.png"} />
       <Departments />

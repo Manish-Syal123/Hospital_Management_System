@@ -1,0 +1,95 @@
+/* HeroSection.css */
+
+.hero-section {
+  /* background-color: #1a202c; bg-gray-900 */
+  background-color: #ffffff; /* bg-gray-900 */
+  color: #1a202c; /* text-white */
+  padding: 62px 16px; /* px-4 py-32 */
+  margin-top: 100px;
+}
+
+.container1 {
+  max-width: 1200px; /* max-w-screen-xl */
+  margin: 0 auto; /* mx-auto */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /*lg:h-screen*/
+  z-index: 1;
+}
+
+.content {
+  max-width: 768px; /* max-w-3xl */
+  text-align: center; /* text-center */
+}
+
+.hero-title {
+  font-size: 3rem; /* text-3xl */
+  font-weight: 800; /* font-extrabold */
+  background: linear-gradient(
+    to right,
+    #6ee7b7,
+    #3b82f6,
+    #9333ea
+  ); /* bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 */
+  -webkit-background-clip: text; /* bg-clip-text */
+  color: transparent; /* text-transparent */
+}
+
+.hero-title .hero-subtitle {
+  display: block; /* sm:block */
+}
+
+.hero-description {
+  margin: 16px auto; /* mt-4 mx-auto */
+  max-width: 600px; /* max-w-xl */
+  font-size: 1.25rem; /* sm:text-xl */
+  line-height: 1.75; /* relaxed */
+}
+
+.button-group {
+  margin-top: 32px; /* mt-8 */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px; /* gap-4 */
+}
+
+.button {
+  display: block;
+  width: 100%; /* w-full */
+  padding: 12px 24px; /* px-12 py-3 */
+  font-size: 1rem; /* text-sm */
+  font-weight: 500; /* font-medium */
+  text-align: center;
+  border-radius: 8px; /* rounded */
+  transition: all 0.3s ease;
+}
+
+.primary-button {
+  border: 1px solid #3b82f6; /* border-blue-600 */
+  background-color: #3b82f6; /* bg-blue-600 */
+  color: #ffffff; /* text-white */
+}
+
+.primary-button:hover {
+  background-color: transparent;
+  color: #000000;
+}
+
+.secondary-button {
+  border: 1px solid #3b82f6; /* border-blue-600 */
+  background-color: transparent;
+  color: #000000; /* text-white */
+}
+
+.secondary-button:hover {
+  background-color: #000000; /* hover:bg-blue-600 */
+  color: #ffffff;
+}
+
+@media (min-width: 640px) {
+  .button {
+    width: auto; /* sm:w-auto */
+  }
+}

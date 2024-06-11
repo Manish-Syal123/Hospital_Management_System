@@ -1,0 +1,133 @@
+/* CareerPathSection.css */
+
+.career-path-section {
+  padding: 2rem 1rem; /* py-8 px-4 */
+}
+
+.container {
+  max-width: 1200px; /* max-w-screen-xl */
+  margin: 0 auto; /* mx-auto */
+  padding: 2rem 1rem; /* sm:px-6 sm:py-12 lg:px-8 lg:py-16 */
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem; /* gap-y-8 */
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr; /* lg:grid-cols-2 */
+    align-items: center; /* lg:items-center */
+    gap: 1rem 4rem; /* lg:gap-x-16 */
+  }
+}
+
+.text-content {
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .text-content {
+    text-align: left; /* ltr:lg:text-left */
+  }
+}
+
+.title {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: bold; /* font-bold */
+}
+
+@media (min-width: 640px) {
+  .title {
+    font-size: 2.25rem; /* sm:text-4xl */
+  }
+}
+
+.description {
+  margin-top: 1rem; /* mt-4 */
+  color: #718096; /* text-gray-600 */
+}
+
+.cta-button {
+  margin-top: 2rem; /* mt-8 */
+  display: inline-block; /* inline-block */
+  background-color: #5a67d8; /* bg-indigo-600 */
+  color: white; /* text-white */
+  padding: 0.75rem 3rem; /* px-12 py-3 */
+  font-size: 0.875rem; /* text-sm */
+  font-weight: medium; /* font-medium */
+  border-radius: 0.5rem; /* rounded */
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #4c51bf; /* hover:bg-indigo-700 */
+}
+
+.cta-button:focus {
+  outline: none;
+  ring: 2px solid #ecc94b; /* focus:ring-yellow-400 */
+}
+
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem; /* gap-4 */
+}
+
+@media (min-width: 640px) {
+  .icon-grid {
+    grid-template-columns: repeat(3, 1fr); /* sm:grid-cols-3 */
+  }
+}
+
+.icon-card {
+  display: block;
+  padding: 1rem; /* p-4 */
+  border: 1px solid #e2e8f0; /* border-gray-100 */
+  border-radius: 0.75rem; /* rounded-xl */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* shadow-sm */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.icon-card:hover {
+  border-color: #cbd5e0; /* hover:border-gray-200 */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* hover:ring-1 hover:ring-gray-200 */
+}
+
+.icon-card:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5); /* focus:ring */
+}
+
+.icon {
+  display: inline-block;
+  padding: 0.75rem; /* p-3 */
+  background-color: #f7fafc; /* bg-gray-50 */
+  border-radius: 0.5rem; /* rounded-lg */
+}
+
+.icon-svg {
+  height: 1.5rem; /* h-6 */
+  width: 1.5rem; /* w-6 */
+}
+
+.icon-title {
+  margin-top: 0.5rem; /* mt-2 */
+  font-weight: bold; /* font-bold */
+}
+
+.icon-description {
+  display: none;
+  margin-top: 0.25rem; /* sm:mt-1 */
+  font-size: 0.875rem; /* sm:text-sm */
+  color: #1a202c; /* sm:text-gray-600 */
+}
+
+@media (min-width: 640px) {
+  .icon-description {
+    display: block; /* sm:block */
+  }
+}

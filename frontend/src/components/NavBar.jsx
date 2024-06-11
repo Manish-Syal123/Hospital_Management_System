@@ -31,10 +31,11 @@ const NavBar = () => {
   };
   return (
     <>
-      <nav className="container">
+      <nav
+        style={{ maxWidth: "100%", paddingLeft: "30px", paddingRight: "30px" }}
+      >
         <div className="logo">
-          {/* <img src="/logo.png" alt="logo" className="logo-img" /> */}
-          HumanKind
+          <img src="/navlogo.svg" alt="logo" className="logo-img" />
         </div>
         <div className={show ? "navLinks showmenu" : "navLinks"}>
           <div className="link">

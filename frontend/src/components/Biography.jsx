@@ -8,7 +8,6 @@ const Biography = ({ imageUrl }) => {
           <img src={imageUrl} alt="whoweare" />
         </div>
         <div className="banner">
-          <p>Biography</p>
           <h3>Who We Are</h3>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
