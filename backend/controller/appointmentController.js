@@ -141,8 +141,7 @@ export const deleteAppointment = catchAsyncErrors(async (req, res, next) => {
 
 //endpoint to get Looged In user Appointments
 export const getUserAppointments = catchAsyncErrors(async (req, res, next) => {
-  const { email } = req.body;
-  const userAppointments = await Appointment.find(email);
+  const userAppointments = await Appointment.find();
   if (!userAppointments) {
     return next(new ErrorHandler("Appointment Not Found!", 404));
   }

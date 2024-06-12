@@ -12,6 +12,7 @@ import NavBar from "./components/NavBar";
 import { Context } from "./main";
 import axios from "axios";
 import Footer from "./components/Footer";
+import MyAppointments from "./pages/MyAppointments";
 
 const App = () => {
   const { isAuthenticated, setIsAuthenticated, setUser } = useContext(Context);
@@ -46,6 +47,7 @@ const App = () => {
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/myappointments" element={<MyAppointments />} />
         </Routes>
         <ToastContainer position="top-center" />
         <Footer />
