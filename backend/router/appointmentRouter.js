@@ -2,6 +2,7 @@ import express from "express";
 import {
   deleteAppointment,
   getAllAppointments,
+  getUserAppointments,
   postAppointment,
   updateAppointmentStatus,
 } from "../controller/appointmentController.js";
@@ -15,5 +16,7 @@ router.post("/post", isPatientAuthenticated, postAppointment);
 router.get("/getallappointments", isAdminAuthenticated, getAllAppointments);
 router.put("/update/:id", isAdminAuthenticated, updateAppointmentStatus);
 router.delete("/delete/:id", isAdminAuthenticated, deleteAppointment);
+
+router.get("/getuserappointments", isPatientAuthenticated, getUserAppointments);
 
 export default router;

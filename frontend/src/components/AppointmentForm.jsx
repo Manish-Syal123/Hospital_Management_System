@@ -1,12 +1,14 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import { Context } from "../main";
 
 const AppointmentForm = () => {
+  const { user, setUser } = useContext(Context);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
+  // const [email, setEmail] = useState(user?.email);
   const [phone, setPhone] = useState("");
   const [nic, setNic] = useState("");
   const [dob, setDob] = useState("");
@@ -38,7 +40,7 @@ const AppointmentForm = () => {
         { withCredentials: true }
       );
       setDoctors(data.doctors);
-      console.log(data.doctors);
+      // console.log(data.doctors);
     };
     fetchDoctors();
   }, []);
@@ -53,7 +55,7 @@ const AppointmentForm = () => {
           {
             firstName,
             lastName,
-            email,
+            email: user?.email || "",
             phone,
             nic,
             dob,
@@ -71,7 +73,9 @@ const AppointmentForm = () => {
           }
         )
         .then((res) => {
-          toast.success(res.message);
+          console.log(res);
+          // toast.success(res.message);
+          toast.success("Appointment booked succefully!");
           setFirstName(""),
             setLastName(""),
             setEmail(""),
@@ -87,8 +91,9 @@ const AppointmentForm = () => {
             setAddress("");
         });
     } catch (error) {
-      // console.log(error);
+      console.log(error);
       toast.error(error.response.data.message);
+      // toast.error("Please Fill form with correct details!");
     }
   };
   return (
@@ -113,9 +118,9 @@ const AppointmentForm = () => {
           <div>
             <input
               type="text"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              placeholder={user?.email || "Email"}
+              value={user?.email || ""}
+              disabled={true}
             />
             <input
               type="number"

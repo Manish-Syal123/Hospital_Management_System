@@ -90,7 +90,7 @@ export const postAppointment = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
-// endpoint to get all booked appointments
+// endpoint to get all booked appointments for Admin DashBoard
 export const getAllAppointments = catchAsyncErrors(async (req, res, next) => {
   const appointments = await Appointment.find();
   res.status(200).json({
@@ -99,7 +99,7 @@ export const getAllAppointments = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
-// endpoint to Update appointments status
+// endpoint to Update appointments status from Admin dashboard
 export const updateAppointmentStatus = catchAsyncErrors(
   async (req, res, next) => {
     const { id } = req.params; // we will receive an appointment ID in the url to update it's status
@@ -136,5 +136,18 @@ export const deleteAppointment = catchAsyncErrors(async (req, res, next) => {
   res.status(200).json({
     success: true,
     message: "Appointment Deleated Succefully!",
+  });
+});
+
+//endpoint to get Looged In user Appointments
+export const getUserAppointments = catchAsyncErrors(async (req, res, next) => {
+  const { email } = req.body;
+  const userAppointments = await Appointment.find(email);
+  if (!userAppointments) {
+    return next(new ErrorHandler("Appointment Not Found!", 404));
+  }
+  res.status(200).json({
+    success: true,
+    userAppointments,
   });
 });
