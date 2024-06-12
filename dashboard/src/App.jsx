@@ -7,10 +7,11 @@ import AddNewAdmin from "./Pages/AddNewAdmin";
 import Messages from "./Pages/Messages";
 import Doctors from "./Pages/Doctors";
 import Sidebar from "./components/Sidebar";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Context } from "./main";
 import axios from "axios";
+import "./App.css";
 
 const App = () => {
   const { isAuthenticated, setIsAuthenticated, admin, setAdmin } =
@@ -30,6 +31,7 @@ const App = () => {
       } catch (error) {
         setIsAuthenticated(false);
         setAdmin({});
+        console.log(error);
       }
     };
     fetchUser();
