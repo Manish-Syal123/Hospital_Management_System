@@ -1,6 +1,7 @@
 import React from "react";
 import "../Styles/about.css"; // Import the CSS file
 import "../Styles/aboutHero.css";
+import Doctors from "../components/Doctors";
 const AboutUs = () => {
   return (
     <>
@@ -76,6 +77,9 @@ const AboutUs = () => {
           </div>
         </div>
       </section>
+
+      {/* Available Doctors Information */}
+      <Doctors />
     </>
   );
 };
