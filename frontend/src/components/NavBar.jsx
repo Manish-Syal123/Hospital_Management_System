@@ -4,6 +4,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { ImHome } from "react-icons/im";
 import { ImCalendar } from "react-icons/im";
 import { ImUsers } from "react-icons/im";
+import { HiShoppingCart } from "react-icons/hi";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { Context } from "../main";
@@ -42,12 +43,21 @@ const NavBar = () => {
             <Link to={"/"}>
               <ImHome size={25} /> Home
             </Link>
-            <Link to={"/appointment"}>
-              <ImCalendar /> Appointment
-            </Link>
+            {isAuthenticated && (
+              <Link to={"/appointment"}>
+                <ImCalendar /> Appointment
+              </Link>
+            )}
+
             <Link to={"/aboutus"}>
               <ImUsers /> About Us
             </Link>
+            {isAuthenticated && (
+              <Link to={"/myappointments"}>
+                <HiShoppingCart />
+                MyApoint.
+              </Link>
+            )}
           </div>
           {isAuthenticated ? (
             <button className="logoutBtn btn" onClick={handleLogout}>
