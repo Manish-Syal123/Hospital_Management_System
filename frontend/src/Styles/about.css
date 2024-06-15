@@ -1,7 +1,6 @@
-/* CareerPathSection.css */
-
 .career-path-section {
   padding: 2rem 1rem; /* py-8 px-4 */
+  background-color: #f9fafb; /* light gray background */
 }
 
 .container {
@@ -11,123 +10,77 @@
 }
 
 .grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.doctor-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem; /* gap-y-8 */
-}
-
-@media (min-width: 1024px) {
-  .grid {
-    grid-template-columns: 1fr 1fr; /* lg:grid-cols-2 */
-    align-items: center; /* lg:items-center */
-    gap: 1rem 4rem; /* lg:gap-x-16 */
-  }
-}
-
-.text-content {
-  text-align: center;
-}
-
-@media (min-width: 1024px) {
-  .text-content {
-    text-align: left; /* ltr:lg:text-left */
-  }
-}
-
-.title {
-  font-size: 1.875rem; /* text-3xl */
-  font-weight: bold; /* font-bold */
-}
-
-@media (min-width: 640px) {
-  .title {
-    font-size: 2.25rem; /* sm:text-4xl */
-  }
-}
-
-.description {
-  margin-top: 1rem; /* mt-4 */
-  color: #718096; /* text-gray-600 */
-}
-
-.cta-button {
-  margin-top: 2rem; /* mt-8 */
-  display: inline-block; /* inline-block */
-  background-color: #5a67d8; /* bg-indigo-600 */
-  color: white; /* text-white */
-  padding: 0.75rem 3rem; /* px-12 py-3 */
-  font-size: 0.875rem; /* text-sm */
-  font-weight: medium; /* font-medium */
-  border-radius: 0.5rem; /* rounded */
-  transition: background-color 0.3s ease;
-}
-
-.cta-button:hover {
-  background-color: #4c51bf; /* hover:bg-indigo-700 */
-}
-
-.cta-button:focus {
-  outline: none;
-  ring: 2px solid #ecc94b; /* focus:ring-yellow-400 */
-}
-
-.icon-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1rem; /* gap-4 */
+  padding: 15px;
 }
 
-@media (min-width: 640px) {
-  .icon-grid {
-    grid-template-columns: repeat(3, 1fr); /* sm:grid-cols-3 */
-  }
-}
-
-.icon-card {
-  display: block;
-  padding: 1rem; /* p-4 */
-  border: 1px solid #e2e8f0; /* border-gray-100 */
-  border-radius: 0.75rem; /* rounded-xl */
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* shadow-sm */
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.icon-card:hover {
-  border-color: #cbd5e0; /* hover:border-gray-200 */
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* hover:ring-1 hover:ring-gray-200 */
-}
-
-.icon-card:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5); /* focus:ring */
-}
-
-.icon {
-  display: inline-block;
-  padding: 0.75rem; /* p-3 */
-  background-color: #f7fafc; /* bg-gray-50 */
+.doctor-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem; /* p-6 */
+  background-color: white; /* bg-white */
   border-radius: 0.5rem; /* rounded-lg */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-lg */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none; /* Remove default link styling */
+  word-wrap: break-word;
 }
 
-.icon-svg {
-  height: 1.5rem; /* h-6 */
-  width: 1.5rem; /* w-6 */
+.doctor-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 10px 8px rgba(0, 0, 0, 0.15);
+  border: 1px solid indigo;
 }
 
-.icon-title {
-  margin-top: 0.5rem; /* mt-2 */
+.doctor-image img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: fill;
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+.doctor-title {
+  font-size: 1rem; /* text-lg */
   font-weight: bold; /* font-bold */
+  color: #2d3748; /* text-gray-800 */
+  margin-top: 0.5rem; /* mt-2 */
+  text-align: left;
+  width: 100%;
 }
 
-.icon-description {
-  display: none;
-  margin-top: 0.25rem; /* sm:mt-1 */
-  font-size: 0.875rem; /* sm:text-sm */
-  color: #1a202c; /* sm:text-gray-600 */
+.doctor-description {
+  font-size: 0.875rem; /* text-sm */
+  color: #4a5568; /* text-gray-600 */
+  margin-top: 0.25rem; /* mt-1 */
+  width: 100%;
+  text-align: left;
 }
 
 @media (min-width: 640px) {
-  .icon-description {
-    display: block; /* sm:block */
+  .doctor-card {
+    padding: 2rem; /* lg:p-8 */
+  }
+
+  .doctor-image img {
+    width: 120px; /* lg:w-30 */
+    height: 120px; /* lg:h-30 */
+  }
+
+  .doctor-title {
+    font-size: 1.25rem; /* lg:text-xl */
+  }
+
+  .doctor-description {
+    font-size: 1rem; /* lg:text-base */
   }
 }
