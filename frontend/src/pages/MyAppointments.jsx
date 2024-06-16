@@ -1,9 +1,10 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../Styles/appointment.css";
+import { Context } from "../main";
 const MyAppointments = () => {
   const [userAppointments, setUserAppointments] = useState([]);
-
+  const { user, setUser } = useContext(Context);
   useEffect(() => {
     BookedAppointments();
     console.log(userAppointments);
@@ -17,7 +18,10 @@ const MyAppointments = () => {
         }
       );
 
-      setUserAppointments(result.data.userAppointments);
+      const filteredAppointments = result.data.userAppointments.filter(
+        (items) => items.email === user?.email
+      );
+      setUserAppointments(filteredAppointments);
       //   console.log(result.data.userAppointments);
     } catch (error) {
       console.log(error);
