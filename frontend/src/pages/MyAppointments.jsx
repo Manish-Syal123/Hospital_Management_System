@@ -4,11 +4,13 @@ import "../Styles/appointment.css";
 import { Context } from "../main";
 const MyAppointments = () => {
   const [userAppointments, setUserAppointments] = useState([]);
+  const [isClicked, setIsClicked] = useState(false);
   const { user, setUser } = useContext(Context);
+
   useEffect(() => {
     BookedAppointments();
     console.log(userAppointments);
-  }, [userAppointments]);
+  }, []);
   const BookedAppointments = async () => {
     try {
       const result = await axios.get(
@@ -27,6 +29,28 @@ const MyAppointments = () => {
       console.log(error);
     }
   };
+
+  const handleUpdateStatus = async (appointmentId, status) => {
+    try {
+      const { data } = await axios.put(
+        `http://localhost:4000/api/v1/appointment/update/${appointmentId}`,
+        { status },
+        { withCredentials: true }
+      );
+      setUserAppointments((prevAppointments) =>
+        prevAppointments.map((appointment) =>
+          appointment._id === appointmentId
+            ? { ...appointment, status }
+            : appointment
+        )
+      );
+      toast.success(data.message);
+      BookedAppointments();
+    } catch (error) {
+      toast.error(error.response.data.message);
+    }
+  };
+
   return (
     <div className="maincontainer">
       <div className="banner">
@@ -39,7 +63,7 @@ const MyAppointments = () => {
               <th>Doctor</th>
               <th>Department</th>
               <th>Status</th>
-              <th>Visited</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -76,7 +100,15 @@ const MyAppointments = () => {
                     </select>
                   </td>
                   <td data-label="Visited">
-                    <button>Cancel</button>
+                    <button
+                      disabled={isClicked}
+                      onClick={() => {
+                        handleUpdateStatus(appointment._id, "Rejected");
+                        setIsClicked(true);
+                      }}
+                    >
+                      Cancel
+                    </button>
                   </td>
                 </tr>
               ))
