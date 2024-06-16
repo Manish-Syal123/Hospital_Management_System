@@ -1,0 +1,85 @@
+.banner {
+  padding: 2rem 1rem; /* py-8 px-4 */
+  background-color: #fff; /* white background */
+  border-radius: 0.5rem; /* rounded-lg */
+  margin-top: 5rem; /* mb-8 */
+  /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
+}
+.maincontainer {
+  height: 100vh;
+  margin-top: 1rem;
+}
+.banner h5 {
+  font-size: 1.5rem; /* text-xl */
+  font-weight: bold; /* font-bold */
+  margin-bottom: 1rem; /* mb-4 */
+  color: #1a202c; /* dark gray color */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 3rem;
+}
+
+thead {
+  background-color: #f7fafc; /* light gray background */
+}
+
+th,
+td {
+  padding: 0.75rem 1rem; /* px-4 py-3 */
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0; /* border-gray-200 */
+}
+
+th {
+  font-size: 0.875rem; /* text-sm */
+  font-weight: bold; /* font-bold */
+  color: #2d3748;
+}
+
+td {
+  font-size: 0.9rem;
+  color: #4a5568;
+  font-weight: 500;
+}
+
+td select {
+  padding: 0.25rem 0.5rem; /* px-2 py-1 */
+  border: none; /* no border */
+  background-color: transparent; /* transparent background */
+  font-size: 0.875rem; /* text-sm */
+  color: inherit; /* inherit text color */
+  appearance: none; /* remove default select styles */
+  font-weight: 600;
+}
+
+.value-pending {
+  color: #d69e2e; /* yellow-600 */
+}
+
+.value-accepted {
+  color: #38a169; /* green-500 */
+}
+
+.value-rejected {
+  color: #e53e3e; /* red-500 */
+}
+
+td button {
+  background-color: #e53e3e;
+  border: none; /* no border */
+  cursor: pointer;
+  color: white; /* red-600 */
+  padding: 10px;
+  border-radius: 5px;
+}
+
+td button:hover {
+  background-color: #00b24a; /* hover:red-700 */
+}
+
+td button:focus {
+  outline: none;
+}
